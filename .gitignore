@@ -41,3 +41,10 @@
 
 # other
 *.iws
+/src/java/*.gitkeep
+.gitkeep
+/lib/.gitkeep
+/scripts/.gitkeep
+/test/integration/.gitkeep
+/grails-app/taglib/.gitkeep
+/grails-app/utils/.gitkeep
