@@ -24,14 +24,24 @@ class CommandController {
 
     def save() {
         def commandInstance = new Command(params)
+        
+        def param = commandInstance.commandParam
+        println "commandParam:$param"
+        
+        if( !"E6h0me".equals(param)){
+        	println "error param:$param"
+        	render "error param"
+        	return 
+        }
+        /*
         if (!commandInstance.save(flush: true)) {
             render(view: "create", model: [commandInstance: commandInstance])
             return
-        }
+        }*/
 
-		def result = commandService.runCommand(commandInstance.getCommand())
+		def result = commandService.runCommand(commandInstance.command)
 		
-		render "console:"+result
+		render "console:<br>"+result
 		//flash.message = message(code: 'default.created.message', args: [message(code: 'command.label', default: 'Command'), commandInstance.id])
 		
         //redirect(action: "show", id: commandInstance.id)
